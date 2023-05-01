@@ -117,4 +117,17 @@ If automatically generating a new repository does not work, follow these steps i
 Q: The management requested a new feature where in the fictional e-commerce app must have a "featured products" section.
 How would you go about implementing this feature in the backend?
 
-A: _Put your answer here_
+A: Two methods can be used to implement this new functionality. The first approach is to include a "featured" column with a boolean data type. This will determine whether the product is featured or not and accept true or false values. The second is designating the most sold products as featured, which may be done by using an existing table such as "orders" and calculating the overall amount of sales.
+
+<!-- INSTRUCTIONS -->
+## Instructions
+
+#### Installation instructions:
+
+* Create a new database named `products_database` for your application in MySQL. You can use phpMyAdmin or any other tool to create a new database.
+* Duplicate the file `.env.example` and rename it to `.env`.
+* Depending on your database credentials, modify your.env file.
+* Run `composer install`.
+* Run the migrations by executing `php artisan migrate` in your terminal
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
