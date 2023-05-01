@@ -126,8 +126,9 @@ A: Two methods can be used to implement this new functionality. The first approa
 
 * Create a new database named `products_database` for your application in MySQL. You can use phpMyAdmin or any other tool to create a new database.
 * Duplicate the file `.env.example` and rename it to `.env`.
-* Depending on your database credentials, modify your.env file.
+* Depending on your database credentials, modify your .env file.
 * Run `composer install`.
-* Run the migrations by executing `php artisan migrate` in your terminal
+* Run the migrations by executing `php artisan migrate` in your terminal.
+* Start the Laravel development server by executing the `php artisan serve` in your terminal.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

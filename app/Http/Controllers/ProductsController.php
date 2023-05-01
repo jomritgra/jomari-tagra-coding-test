@@ -34,14 +34,14 @@ class ProductsController extends Controller
             'product_price' => 'required|numeric|regex:/^\d+(\.\d{1,2})?$/',
         ]);
 
-        $product = Products::create($validatedData);
+        $products = Products::create($validatedData);
 
-        return response()->json($product);
+        return response()->json($products);
     }
 
     public function update(Request $request, $id)
     {
-        $product = Products::findOrFail($id);
+        $products = Products::findOrFail($id);
 
         $validatedData = $request->validate([
             'product_name' => 'required|max:255',
@@ -49,15 +49,17 @@ class ProductsController extends Controller
             'product_price' => 'required|numeric|regex:/^\d+(\.\d{1,2})?$/',
         ]);
 
-        $product->update($validatedData);
+        $products->update($validatedData);
 
-        return response()->json($product);
+        Cache::forget('product_' . $products->id);
+
+        return response()->json($products);
     }
 
     public function delete($id)
     {
-        $product = Products::findOrFail($id);
-        $product->delete();
+        $products = Products::findOrFail($id);
+        $products->delete();
 
         return response()->json(['message' => 'Product deleted successfully']);
     }
